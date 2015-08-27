@@ -42,7 +42,7 @@ Update the environment variables on your system, or place a .env file with the e
 
 Advanced Mapping
 --------------------------
-You can map your environment variables to multiple constants.
+You can map your environment variables to constants. See the folowing examples:
 
 ```php
 /**
