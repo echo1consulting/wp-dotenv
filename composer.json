@@ -12,10 +12,10 @@
     },
     "autoload": {
         "psr-4": {
-            "WDE\\": "src/"
+            "Wpenv\\": "src/"
         }
     },
     "config": {
-        "vendor-dir": "plugin"
+        "vendor-dir": "vendor"
     }
 }
