@@ -1,0 +1,21 @@
+{
+    "name": "echo1consulting/wp-env",
+    "description": "",
+    "keywords": ["wordpress", "add-on"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.3",
+        "vlucas/phpdotenv": "dev-master"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "WDE\\": "src/"
+        }
+    },
+    "config": {
+        "vendor-dir": "plugin"
+    }
+}

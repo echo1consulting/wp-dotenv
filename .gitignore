@@ -1,0 +1,4 @@
+/vendor
+/plugin
+/node_modules
+.env
