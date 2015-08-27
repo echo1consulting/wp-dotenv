@@ -38,3 +38,44 @@ $wp_env->map_constant( ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'] );
 ```
 
 Update the environment variables on your system, or place a .env file with the environment variables in your Wordpress root. An example .env.example file can be found in the wp-env folder.
+
+
+Advanced Mapping
+--------------------------
+You can map your environment variables to multiple constants.
+
+```php
+/**
+ * Map the environment variable to a constant with the same name
+ * e.g. Maps $_ENV['DB_HOST'] to DB_HOST
+ */
+
+$wp_env->map_constant( 'DB_HOST' );
+$wp_env->map_constant( 'DB_NAME' );
+$wp_env->map_constant( 'DB_USER' );
+$wp_env->map_constant( 'DB_PASSWORD' );
+
+
+/**
+ * Map the environment variable to a constant with a custom name
+ * e.g. Maps $_ENV['DB_HOST'] to DATABASE_NAME
+ */
+
+$wp_env->map_constant( 'DB_NAME', 'DATABASE_NAME' );
+
+
+/**
+ * Map an array of environment variables to constants with the same name
+ * e.g. Maps $_ENV['DB_HOST'] to DB_HOST
+ */
+
+$wp_env->map_constant( ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'] );
+
+
+/**
+ * Map an array of environment variables to constants with custom names
+ * e.g. Maps $_ENV['DB_HOST'] to DATABASE_NAME
+ */
+
+$wp_env->map_constant( ['DB_HOST' => 'DATABASE_HOST', 'DB_NAME' => 'DATABASE_NAME', 'DB_USER' => 'DATABASE_USER', 'DB_PASSWORD' => 'DATABASE_PASSWORD'] );
+```
