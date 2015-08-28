@@ -16,6 +16,6 @@
         }
     },
     "config": {
-        "vendor-dir": "vendor"
+        "vendor-dir": "bootstrap"
     }
 }

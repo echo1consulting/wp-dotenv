@@ -11,17 +11,17 @@ Installation with Composer
 
 **Clone this repository into your Wordpress root by executing:**
 
-```git clone https://github.com/echo1consulting/wp-env.git```
+```git clone https://github.com/echo1consulting/wp-dotenv.git```
 
-**Change your working directory to the wp-env folder and execute:**
+**Change your working directory to the wp-dotenv folder and execute:**
 
 `composer install`
 
 **At the top of your wp-config.php file, add the following:**
 
 ```php
-// Includes the wp-env bootstrap file
-require_once( __DIR__ . '/wp-env/bootstrap.php');
+// Includes the wp-dotenv bootstrap file
+require_once( __DIR__ . '/wp-dotenv/bootstrap/autoload.php');
 
 // Initializes the wp-env class
 $wp_env = new \Wpenv\Wpenv( __DIR__ );
