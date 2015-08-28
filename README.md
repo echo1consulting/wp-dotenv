@@ -37,7 +37,7 @@ $wp_env->map_constant( ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'] );
 
 ```
 
-Update the environment variables on your system, or place a .env file with the environment variables in your Wordpress root. An example .env.example file can be found in the wp-env folder.
+Update the environment variables on your system, or place a .env file with the environment variables in your Wordpress root. An example .env.example file can be found in the wp-dotenv folder.
 
 
 Advanced Mapping
