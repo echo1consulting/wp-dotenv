@@ -23,7 +23,7 @@ Installation with Composer
 // Includes the wp-dotenv bootstrap file
 require_once( __DIR__ . '/wp-dotenv/bootstrap/autoload.php');
 
-// Initializes the wp-env class
+// Initializes the wp-dotenv class
 $wp_env = new \Wpenv\Wpenv( __DIR__ );
 
 // Loads the environment variables
