@@ -6,50 +6,25 @@ class Wpenv extends \Dotenv\Dotenv {
 
     /**
      * Maps an environment variable to a constant
-     * @param $env_var_key
+     * @param string $env_var_key
      * @param string $constant
+		 * @param string $type
      * @return $this
      */
-	public function map_constant( $env_var_key, $constant = '' ) {
+	public function map_constant( $env_var_key, $constant = null, $type= null ) {
 
-		// If this is a string
-		if( is_string( $env_var_key ) ) {
+      // If the constant is not set
+      if( is_null( $constant ) ) {
 
-            // If the constant is not set
-            if( $constant === '' ) {
+          $constant = $env_var_key;
 
-                $constant = $env_var_key;
+      }
 
-            }
+      // Set a constant equal based on  param
+      $this->define_constant( $env_var_key, $constant, $type );
 
-            // Set a constant equal based on  param
-            $this->define_constant( $constant, $env_var_key );
-
-            // Return
-            return $this;
-
-		}
-		// If this is an array
-		if( is_array( $env_var_key ) ) {
-
-            // For each env var param
-            foreach( $env_var_key as $_env_var_key => $constant ) {
-
-                // If this is an indexed array element
-                if( is_int( $_env_var_key ) ) {
-
-                    $_env_var_key = $constant;
-
-                }
-
-                // Set a constant equal based on  constant param
-                $this->define_constant( $constant, $_env_var_key );
-
-            }
-
-		}
-
-		return $this;
+      // Return
+      return $this;
 
 	}
 
@@ -57,8 +32,9 @@ class Wpenv extends \Dotenv\Dotenv {
      * Define a constant using the environment variable value
      * @param string $constant
      * @param string $env_var_key
+		 * @param string $type
      */
-    public function define_constant( $constant = '', $env_var_key = '' ) {
+    protected function define_constant( $env_var_key = '', $constant = '', $type = null ) {
 
         // If the constant is defined
         if( defined( $constant ) ) {
@@ -71,9 +47,29 @@ class Wpenv extends \Dotenv\Dotenv {
 
         }
 
-        // Define the constant using
-        define( $constant, getenv( $env_var_key ) );
+				// Set the environment variable value
+				$env_var_val = getenv( $env_var_key );
 
+				// If the type is not null
+				if( !is_null( $type ) ) {
+
+					// If the type is bool
+					if( $type == 'bool' ) {
+
+						// Cast to bool
+						$env_var_val = ( $env_var_val === 'true' );
+
+					}
+
+					// Set the type
+					settype( $env_var_val, $type );
+
+				}
+
+        // Define the constant using
+        define( $constant, $env_var_val );
+
+				// Return
         return $this;
 
     }
