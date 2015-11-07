@@ -17,32 +17,9 @@ Installation with Composer
 
 `composer install`
 
-**At the top of your wp-config.php file, add the following:**
-
-```php
-// Includes the wp-dotenv bootstrap file
-require_once( __DIR__ . '/wp-dotenv/bootstrap/autoload.php');
-
-// Initializes the wp-dotenv class
-$wp_env = new \Wpenv\Wpenv( __DIR__ );
-
-// Loads the environment variables
-$wp_env->load();
-
-// Sets up required environment variables
-$wp_env->required( ['DB_HOST','DB_NAME', 'DB_USER', 'DB_PASSWORD'] );
-
-// Maps environment variables to constants with the same name
-$wp_env->map_constant( ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'] );
-
-```
-
-Update the environment variables on your system, or place a .env file with the environment variables in your Wordpress root. An example .env.example file can be found in the wp-dotenv folder.
-
-
 Advanced Mapping
 --------------------------
-You can map your environment variables to constants. See the following examples:
+Update the environment variables on your system, or place a .env file with the environment variables in your Wordpress root. An example .env.example file can be found in the wp-dotenv folder. You can map your environment variables to constants. See the following examples:
 
 ```php
 // Includes the wp-dotenv bootstrap file
